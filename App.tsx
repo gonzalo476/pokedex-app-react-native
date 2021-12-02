@@ -1,14 +1,22 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react'
-import {View} from 'react-native'
-import {Text} from './src/components'
+import {AppRegistry} from 'react-native'
+import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client'
 
-function App() {
+import Home from './src/screens/Home'
+
+const client = new ApolloClient({
+  uri: 'https://dex-server.herokuapp.com/graphql',
+  cache: new InMemoryCache(),
+})
+
+const App = () => {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Hello World amigos</Text>
-    </View>
+    <ApolloProvider client={client}>
+      <Home />
+    </ApolloProvider>
   )
 }
 
 export default App
+
+AppRegistry.registerComponent('App', () => App)

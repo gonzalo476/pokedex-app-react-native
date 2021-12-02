@@ -11,13 +11,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		462763CB8E844D91A9D88CA3 /* Gellix-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */; };
+		772DD38250554CDEA4481661 /* Gellix-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD695FB051B04669A09D7783 /* Gellix-Medium.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		85D7367C5F9B4C1197D639CB /* Gellix-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66828A78C28B4F889CA62779 /* Gellix-Regular.otf */; };
 		9224F9FD3405D0BF46B99031 /* libPods-pokedexapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6035A2F3327196FCB54B359 /* libPods-pokedexapp.a */; };
 		99D2664A4284D157D768746F /* libPods-pokedexapp-pokedexappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF16EE22B3B01B5728B67BF7 /* libPods-pokedexapp-pokedexappTests.a */; };
 		C3A37F47B2AB411792265B46 /* Gellix-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F335DEE82B484AEB8628F70A /* Gellix-Bold.otf */; };
-		772DD38250554CDEA4481661 /* Gellix-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD695FB051B04669A09D7783 /* Gellix-Medium.otf */; };
-		85D7367C5F9B4C1197D639CB /* Gellix-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66828A78C28B4F889CA62779 /* Gellix-Regular.otf */; };
-		462763CB8E844D91A9D88CA3 /* Gellix-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,17 +41,17 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pokedexapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pokedexapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = pokedexapp/main.m; sourceTree = "<group>"; };
+		61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-SemiBold.otf"; path = "../assets/fonts/Gellix-SemiBold.otf"; sourceTree = "<group>"; };
+		66828A78C28B4F889CA62779 /* Gellix-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Regular.otf"; path = "../assets/fonts/Gellix-Regular.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = pokedexapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF16EE22B3B01B5728B67BF7 /* libPods-pokedexapp-pokedexappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokedexapp-pokedexappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53E86BA8572719F26D7CAFF /* Pods-pokedexapp-pokedexappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexapp-pokedexappTests.release.xcconfig"; path = "Target Support Files/Pods-pokedexapp-pokedexappTests/Pods-pokedexapp-pokedexappTests.release.xcconfig"; sourceTree = "<group>"; };
 		CCE93AD80A14A5DED147D2CA /* Pods-pokedexapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexapp.debug.xcconfig"; path = "Target Support Files/Pods-pokedexapp/Pods-pokedexapp.debug.xcconfig"; sourceTree = "<group>"; };
+		CD695FB051B04669A09D7783 /* Gellix-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Medium.otf"; path = "../assets/fonts/Gellix-Medium.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F335DEE82B484AEB8628F70A /* Gellix-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Bold.otf"; path = "../assets/fonts/Gellix-Bold.otf"; sourceTree = "<group>"; };
 		F6035A2F3327196FCB54B359 /* libPods-pokedexapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokedexapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BABC9CD5DFA638DB257017 /* Pods-pokedexapp-pokedexappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexapp-pokedexappTests.debug.xcconfig"; path = "Target Support Files/Pods-pokedexapp-pokedexappTests/Pods-pokedexapp-pokedexappTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F335DEE82B484AEB8628F70A /* Gellix-Bold.otf */ = {isa = PBXFileReference; name = "Gellix-Bold.otf"; path = "../assets/fonts/Gellix-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CD695FB051B04669A09D7783 /* Gellix-Medium.otf */ = {isa = PBXFileReference; name = "Gellix-Medium.otf"; path = "../assets/fonts/Gellix-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		66828A78C28B4F889CA62779 /* Gellix-Regular.otf */ = {isa = PBXFileReference; name = "Gellix-Regular.otf"; path = "../assets/fonts/Gellix-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */ = {isa = PBXFileReference; name = "Gellix-SemiBold.otf"; path = "../assets/fonts/Gellix-SemiBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 			sourceTree = "<group>";
 		};
 		EFF6C7FC8EE14D979E78ED33 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				F335DEE82B484AEB8628F70A /* Gellix-Bold.otf */,
 				CD695FB051B04669A09D7783 /* Gellix-Medium.otf */,
@@ -167,8 +167,8 @@
 				61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
