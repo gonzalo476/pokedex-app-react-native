@@ -1,10 +1,8 @@
 import {Navigation} from 'react-native-navigation'
-import {AppRegistry} from 'react-native'
-import App from './App'
-import {name as appName} from './app.json'
+import {registerScreens} from './utils'
 
-AppRegistry.registerComponent(appName, () => App)
-Navigation.registerComponent('com.myApp.WelcomeScreen', () => App)
+registerScreens()
+
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
@@ -12,10 +10,16 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'com.myApp.WelcomeScreen',
+              name: 'Authenticate',
             },
           },
         ],
+        options: {
+          topBar: {
+            visible: false,
+            height: 0,
+          },
+        },
       },
     },
   })
