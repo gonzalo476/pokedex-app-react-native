@@ -60,7 +60,7 @@ const SignIn: React.FC<iScreen> = props => {
               touched={touched.password}
             />
             <View style={styles.button}>
-              <Button onPress={handleSubmit}>Crear Cuenta</Button>
+              <Button onPress={handleSubmit}>Iniciar Sesión</Button>
             </View>
           </View>
         )}
