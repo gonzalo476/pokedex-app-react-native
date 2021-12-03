@@ -4,7 +4,7 @@ import {Navigation} from 'react-native-navigation'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import {Formik} from 'formik'
 
-import {SignupSchema} from '../../../utils'
+import {SignupSchema, showModal} from '../../../utils'
 import {iScreen} from '../../../types'
 import {Colors, Header, Text, TextInput, Button} from '../../../components'
 
@@ -93,7 +93,11 @@ const SignUp: React.FC<iScreen> = props => {
         </Formik>
         <View style={styles.row}>
           <Text>¿Ya tienes cuenta?</Text>
-          <Button variant="text" marginH="xs">
+          <Button
+            variant="text"
+            marginH="xs"
+            onPress={() => showModal({name: 'SignIn', title: 'Iniciar Sesión'})}
+          >
             Inicia Sesión
           </Button>
         </View>

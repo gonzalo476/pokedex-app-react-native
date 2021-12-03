@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import {iNavigation} from '../types'
 import {Colors} from '../components'
 
+// AsyncStorage
 export const USER_KEY = 'USER_KEY'
 
 export const getUser = async () => {
@@ -12,6 +13,7 @@ export const getUser = async () => {
   return user
 }
 
+// Navigation
 export const navigate = (props: any) => {
   const {componentId, id} = props
   Navigation.push<iNavigation>(componentId, {
@@ -56,6 +58,34 @@ export const setRoot = ({name}: any) => {
   })
 }
 
+export const showModal = ({name, title}: any) => {
+  Navigation.showModal({
+    stack: {
+      children: [
+        {
+          component: {
+            name: name,
+            options: {
+              topBar: {
+                title: {
+                  text: title,
+                  color: Colors.systemWhite,
+                  fontFamily: 'Gellix-SemiBold',
+                },
+                background: {
+                  color: Colors.blueDark,
+                },
+              },
+              layout: {componentBackgroundColor: Colors.blueDark},
+            },
+          },
+        },
+      ],
+    },
+  })
+}
+
+// Yup Validation
 export const SignupSchema = Yup.object().shape({
   username: Yup.string()
     .min(4, '¡Muy corto!')
