@@ -4,7 +4,7 @@ import {StyleSheet, View, Image, SafeAreaView} from 'react-native'
 import {images} from '../../../constants'
 import {Colors, Button} from '../../components'
 import {iScreen} from '../../types'
-import {navigate} from '../../utils'
+import {navigate, showModal} from '../../utils'
 
 const styles = StyleSheet.create({
   container: {
@@ -42,7 +42,11 @@ const Welcome: React.FC<iScreen> = props => {
       >
         Crear Cuenta
       </Button>
-      <Button variant="text" textColor="systemWhite" onPress={() => {}}>
+      <Button
+        variant="text"
+        textColor="systemWhite"
+        onPress={() => showModal({name: 'SignIn', title: 'Iniciar Sesión'})}
+      >
         Iniciar Sesión
       </Button>
     </View>

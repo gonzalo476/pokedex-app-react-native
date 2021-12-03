@@ -7,7 +7,6 @@ import {setRoot, getUser} from '../../../utils'
 const authenticateUser = async () => {
   try {
     const user = await getUser()
-    console.log('user: ', user)
     if (user) {
       setRoot({name: 'Home'})
     } else {
