@@ -1,12 +1,10 @@
 import React from 'react'
 import {View, StyleSheet} from 'react-native'
 
-import {Navigation} from 'react-native-navigation'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
-import {Formik} from 'formik'
+import {useFormik} from 'formik'
 
-import {SignupSchema} from '../../../utils'
-import {iScreen} from '../../../types'
+import {LogInSchema, setUser, setRoot} from '../../../utils'
 import {TextInput, Button} from '../../../components'
 
 const styles = StyleSheet.create({
@@ -31,40 +29,47 @@ const styles = StyleSheet.create({
   },
 })
 
-const SignIn: React.FC<iScreen> = props => {
-  const {componentId} = props
+const SignIn = () => {
+  const handleSignIn = async ({user}: any) => {
+    try {
+      await setUser({user})
+      setRoot({name: 'Home'})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const {handleChange, handleBlur, handleSubmit, errors, touched} = useFormik({
+    validationSchema: LogInSchema,
+    initialValues: {username: '', password: ''},
+    onSubmit: values =>
+      handleSignIn({
+        user: values.username,
+      }),
+  })
+
   return (
     <KeyboardAwareScrollView style={styles.container}>
-      <Formik
-        validationSchema={SignupSchema}
-        initialValues={{email: '', username: '', password: ''}}
-        onSubmit={values => console.log(values)}
-      >
-        {({handleChange, handleBlur, handleSubmit, errors, touched}) => (
-          <View>
-            <TextInput
-              title="Nombre de usuario:"
-              placeholder="username"
-              onBlur={handleBlur('username')}
-              onChangeText={handleChange('username')}
-              error={errors.username}
-              touched={touched.username}
-            />
-            <TextInput
-              title="Contraseña:"
-              secureTextEntry
-              placeholder="*************"
-              onBlur={handleBlur('password')}
-              onChangeText={handleChange('password')}
-              error={errors.password}
-              touched={touched.password}
-            />
-            <View style={styles.button}>
-              <Button onPress={handleSubmit}>Iniciar Sesión</Button>
-            </View>
-          </View>
-        )}
-      </Formik>
+      <TextInput
+        title="Nombre de usuario:"
+        placeholder="username"
+        onBlur={handleBlur('username')}
+        onChangeText={handleChange('username')}
+        error={errors.username}
+        touched={touched.username}
+      />
+      <TextInput
+        title="Contraseña:"
+        secureTextEntry
+        placeholder="*************"
+        onBlur={handleBlur('password')}
+        onChangeText={handleChange('password')}
+        error={errors.password}
+        touched={touched.password}
+      />
+      <View style={styles.button}>
+        <Button onPress={handleSubmit}>Iniciar Sesión</Button>
+      </View>
     </KeyboardAwareScrollView>
   )
 }

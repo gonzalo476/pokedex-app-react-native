@@ -10,8 +10,9 @@ const authenticateUser = async () => {
     console.log('user: ', user)
     if (user) {
       setRoot({name: 'Home'})
+    } else {
+      setRoot({name: 'Welcome'})
     }
-    setRoot({name: 'Welcome'})
   } catch (error) {
     console.log('error: ', error)
     setRoot({name: 'Welcome'})

@@ -52,8 +52,6 @@ const Index: React.FC<iProps> = props => {
     touched,
   } = props
 
-  console.log(touched)
-
   function borderColor() {
     if (!error && touched) {
       return Colors.systemGreen
