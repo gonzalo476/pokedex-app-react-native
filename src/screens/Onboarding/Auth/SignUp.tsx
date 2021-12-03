@@ -13,11 +13,7 @@ const styles = StyleSheet.create({
 const SignUp = () => {
   return (
     <View style={styles.container}>
-      <Header
-        arrowLeft
-        onPressArrowLeft={() => console.log('goBack')}
-        title="Hello World"
-      />
+      <Header arrowLeft onPressArrowLeft={() => console.log('goBack')} />
     </View>
   )
 }
