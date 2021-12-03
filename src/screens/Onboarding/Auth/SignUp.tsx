@@ -2,7 +2,9 @@ import React from 'react'
 import {StyleSheet, View} from 'react-native'
 import {Navigation} from 'react-native-navigation'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import {Formik} from 'formik'
 
+import {SignupSchema} from '../../../utils'
 import {iScreen} from '../../../types'
 import {Colors, Header, Text, TextInput, Button} from '../../../components'
 
@@ -40,25 +42,55 @@ const SignUp: React.FC<iScreen> = props => {
         <Text variant="largeTitle" type="Bold" marginV="l">
           Crear Cuenta
         </Text>
-        <TextInput title="Username:" placeholder="username" />
-        <TextInput title="Correo:" placeholder="email@mail.com" />
-        <TextInput
-          title="Contraseña:"
-          secureTextEntry
-          placeholder="*************"
-        />
-        <View style={styles.termsconditions}>
-          <Text UIColor="disabledLight">
-            Al crear una cuenta en Pokedex estás de acuerdo
-          </Text>
-          <View style={styles.rowterms}>
-            <Text UIColor="disabledLight">con nuestros</Text>
-            <Button variant="text" marginH="xs">
-              Términos y Condiciones
-            </Button>
-          </View>
-        </View>
-        <Button marginV="m">Crear Cuenta</Button>
+        <Formik
+          validationSchema={SignupSchema}
+          initialValues={{email: '', username: '', password: ''}}
+          onSubmit={values => console.log(values)}
+        >
+          {({handleChange, handleBlur, handleSubmit, errors, touched}) => (
+            <View>
+              <TextInput
+                title="Nombre de usuario:"
+                placeholder="username"
+                onBlur={handleBlur('username')}
+                onChangeText={handleChange('username')}
+                error={errors.username}
+                touched={touched.username}
+              />
+              <TextInput
+                title="Correo:"
+                placeholder="email@mail.com"
+                onBlur={handleBlur('email')}
+                onChangeText={handleChange('email')}
+                error={errors.email}
+                touched={touched.email}
+              />
+              <TextInput
+                title="Contraseña:"
+                secureTextEntry
+                placeholder="*************"
+                onBlur={handleBlur('password')}
+                onChangeText={handleChange('password')}
+                error={errors.password}
+                touched={touched.password}
+              />
+              <View style={styles.termsconditions}>
+                <Text UIColor="disabledLight">
+                  Al crear una cuenta en Pokedex estás de acuerdo
+                </Text>
+                <View style={styles.rowterms}>
+                  <Text UIColor="disabledLight">con nuestros</Text>
+                  <Button variant="text" marginH="xs">
+                    Términos y Condiciones
+                  </Button>
+                </View>
+              </View>
+              <Button marginV="m" onPress={handleSubmit}>
+                Crear Cuenta
+              </Button>
+            </View>
+          )}
+        </Formik>
         <View style={styles.row}>
           <Text>¿Ya tienes cuenta?</Text>
           <Button variant="text" marginH="xs">

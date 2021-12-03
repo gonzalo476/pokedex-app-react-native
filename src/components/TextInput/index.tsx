@@ -6,10 +6,12 @@ import {Colors, Text} from '../theme'
 interface iProps {
   title?: string
   placeholder?: string
-  onChangeText?: () => void
+  onChangeText?: any
   secureTextEntry?: boolean
-  success?: boolean
   error?: string
+  onBlur?: any
+  value?: any
+  touched?: any
 }
 
 const styles = StyleSheet.create({
@@ -39,24 +41,34 @@ const styles = StyleSheet.create({
 })
 
 const Index: React.FC<iProps> = props => {
-  const {placeholder, onChangeText, title, secureTextEntry, success, error} =
-    props
+  const {
+    placeholder,
+    onChangeText,
+    title,
+    secureTextEntry,
+    error,
+    onBlur,
+    value,
+    touched,
+  } = props
+
+  console.log(touched)
 
   function borderColor() {
-    if (success) {
+    if (!error && touched) {
       return Colors.systemGreen
     }
-    if (error) {
+    if (error && touched) {
       return Colors.systemRed
     }
     return Colors.systemWhite
   }
 
   function renderIcon() {
-    if (success) {
+    if (!error && touched) {
       return <Image source={icons.checkmarkCircle} style={styles.icon} />
     }
-    if (error) {
+    if (error && touched) {
       return <Image source={icons.X_Circle} style={styles.icon} />
     }
     return
@@ -76,10 +88,12 @@ const Index: React.FC<iProps> = props => {
           onChangeText={onChangeText}
           style={styles.textInput}
           secureTextEntry={secureTextEntry}
+          onBlur={onBlur}
+          value={value}
         />
         {renderIcon()}
       </View>
-      {error ? (
+      {error && touched ? (
         <Text variant="footnote" UIColor="systemRed">
           {error}
         </Text>
