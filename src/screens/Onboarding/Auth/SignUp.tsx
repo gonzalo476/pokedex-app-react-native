@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native'
 import {Navigation} from 'react-native-navigation'
 
 import {iScreen} from '../../../types'
-import {Colors, Header, Text} from '../../../components'
+import {Colors, Header, Text, TextInput} from '../../../components'
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +27,9 @@ const SignUp: React.FC<iScreen> = props => {
         <Text variant="largeTitle" type="Bold" marginV="l">
           Crear Cuenta
         </Text>
+        <TextInput title="Username:" />
+        <TextInput title="Correo:" />
+        <TextInput title="Contraseña:" secureTextEntry />
       </View>
     </View>
   )
