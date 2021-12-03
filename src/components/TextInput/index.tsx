@@ -72,6 +72,7 @@ const Index: React.FC<iProps> = props => {
       <View style={[styles.box, {borderColor: borderColor()}]}>
         <TextInput
           placeholder={placeholder}
+          placeholderTextColor={Colors.disabledDark}
           onChangeText={onChangeText}
           style={styles.textInput}
           secureTextEntry={secureTextEntry}

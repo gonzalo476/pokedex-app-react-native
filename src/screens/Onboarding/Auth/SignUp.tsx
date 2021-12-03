@@ -40,9 +40,13 @@ const SignUp: React.FC<iScreen> = props => {
         <Text variant="largeTitle" type="Bold" marginV="l">
           Crear Cuenta
         </Text>
-        <TextInput title="Username:" />
-        <TextInput title="Correo:" />
-        <TextInput title="Contraseña:" secureTextEntry />
+        <TextInput title="Username:" placeholder="username" />
+        <TextInput title="Correo:" placeholder="email@mail.com" />
+        <TextInput
+          title="Contraseña:"
+          secureTextEntry
+          placeholder="*************"
+        />
         <View style={styles.termsconditions}>
           <Text UIColor="disabledLight">
             Al crear una cuenta en Pokedex estás de acuerdo
