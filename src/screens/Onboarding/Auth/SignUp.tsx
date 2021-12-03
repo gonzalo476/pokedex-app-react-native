@@ -1,6 +1,7 @@
 import React from 'react'
 import {StyleSheet, View} from 'react-native'
 import {Navigation} from 'react-native-navigation'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 import {iScreen} from '../../../types'
 import {Colors, Header, Text, TextInput, Button} from '../../../components'
@@ -13,17 +14,24 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 16,
   },
-  login: {
+  row: {
     flexDirection: 'row',
     alignSelf: 'center',
     alignItems: 'center',
+  },
+  rowterms: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  termsconditions: {
+    marginVertical: 15,
   },
 })
 
 const SignUp: React.FC<iScreen> = props => {
   const {componentId} = props
   return (
-    <View style={styles.container}>
+    <KeyboardAwareScrollView style={styles.container}>
       <Header
         arrowLeft
         onPressArrowLeft={() => Navigation.popToRoot(componentId)}
@@ -35,19 +43,26 @@ const SignUp: React.FC<iScreen> = props => {
         <TextInput title="Username:" />
         <TextInput title="Correo:" />
         <TextInput title="Contraseña:" secureTextEntry />
-        <Text marginV="m">
-          Al crear una cuenta en Pokedex estás de acuerdo con nuestros Términos
-          y Condiciones.
-        </Text>
+        <View style={styles.termsconditions}>
+          <Text UIColor="disabledLight">
+            Al crear una cuenta en Pokedex estás de acuerdo
+          </Text>
+          <View style={styles.rowterms}>
+            <Text UIColor="disabledLight">con nuestros</Text>
+            <Button variant="text" marginH="xs">
+              Términos y Condiciones
+            </Button>
+          </View>
+        </View>
         <Button marginV="m">Crear Cuenta</Button>
-        <View style={styles.login}>
+        <View style={styles.row}>
           <Text>¿Ya tienes cuenta?</Text>
           <Button variant="text" marginH="xs">
             Inicia Sesión
           </Button>
         </View>
       </View>
-    </View>
+    </KeyboardAwareScrollView>
   )
 }
 
