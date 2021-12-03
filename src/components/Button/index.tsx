@@ -10,11 +10,11 @@ export interface iButton {
   variant?: ButtonVariantTye
   disabled?: boolean
   textColor?: UIColorsType
+  color?: UIColorsType
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
@@ -31,10 +31,23 @@ const Index: React.FC<iButton> = props => {
     isLoading,
     variant = 'filled',
     textColor = 'secondary',
+    disabled = false,
+    color = variant === 'filled' ? 'primary' : 'transparent',
   } = props
   return (
     <Pressable
-      style={variant === 'filled' ? styles.container : null}
+      disabled={disabled}
+      style={[
+        variant === 'filled' ? styles.container : null,
+        {
+          backgroundColor:
+            variant === 'filled'
+              ? disabled
+                ? Colors.disabledDark
+                : Colors[color]
+              : Colors.transparent,
+        },
+      ]}
       onPress={onPress}
     >
       {isLoading ? (
