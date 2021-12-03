@@ -44,6 +44,7 @@ export const navigate = (props: any) => {
           },
         },
         layout: {
+          componentBackgroundColor: Colors.blueDark,
           backgroundColor: Colors.blueDark,
         },
       },
@@ -68,6 +69,7 @@ export const setRoot = ({name}: any) => {
             height: 0,
           },
           layout: {
+            componentBackgroundColor: Colors.blueDark,
             backgroundColor: Colors.blueDark,
           },
         },
