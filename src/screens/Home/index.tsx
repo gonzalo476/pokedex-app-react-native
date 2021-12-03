@@ -1,5 +1,7 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, Button} from 'react-native'
+
+import {removeUser} from '../../utils'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +15,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Text>Home Screen</Text>
+      <Button title="remove user" onPress={() => removeUser()} />
     </View>
   )
 }

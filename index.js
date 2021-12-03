@@ -1,26 +1,10 @@
 import {Navigation} from 'react-native-navigation'
 import {registerScreens} from './utils'
 
+import {setRoot} from './src/utils'
+
 registerScreens()
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'Authenticate',
-            },
-          },
-        ],
-        options: {
-          topBar: {
-            visible: false,
-            height: 0,
-          },
-        },
-      },
-    },
-  })
+  setRoot({name: 'Authenticate'})
 })
