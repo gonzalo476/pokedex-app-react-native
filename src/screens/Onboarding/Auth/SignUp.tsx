@@ -1,18 +1,23 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
+
+import {Colors, Header} from '../../../components'
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: Colors.blueDark,
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })
 
 const SignUp = () => {
   return (
     <View style={styles.container}>
-      <Text>SignUp Screen</Text>
+      <Header
+        arrowLeft
+        onPressArrowLeft={() => console.log('goBack')}
+        title="Hello World"
+      />
     </View>
   )
 }

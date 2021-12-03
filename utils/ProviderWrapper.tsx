@@ -1,22 +1,20 @@
 import React from 'react'
-import {AppRegistry} from 'react-native'
+import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client'
-
-import Home from './src/screens/Home'
 
 const client = new ApolloClient({
   uri: 'https://dex-server.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 })
 
-const App = () => {
-  return (
+const ProviderWrapper = (Component: any) => {
+  return (props: any) => (
     <ApolloProvider client={client}>
-      <Home />
+      <SafeAreaProvider>
+        <Component {...props} />
+      </SafeAreaProvider>
     </ApolloProvider>
   )
 }
 
-export default App
-
-AppRegistry.registerComponent('App', () => App)
+export {ProviderWrapper}
