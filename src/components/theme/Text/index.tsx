@@ -67,7 +67,7 @@ const Index: React.FC<iProps> = props => {
     flexShrink,
     textAlign,
     color,
-    UIColor = 'systemDark',
+    UIColor = 'systemWhite',
   } = props
 
   const fontFamily: any = {
@@ -75,7 +75,7 @@ const Index: React.FC<iProps> = props => {
     SemiBold: `${fontFamilyName}-SemiBold`,
     Medium: `${fontFamilyName}-Medium`,
     Regular: `${fontFamilyName}-Regular`,
-    none: fontFamilyName,
+    none: 'Gellix-Regular',
   }
 
   return (

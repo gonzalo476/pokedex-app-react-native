@@ -18,6 +18,7 @@ const Colors = {
   secondaryFillColor: 'rgba(120,120,128,0.16)',
   tertiaryFillColor: 'rgba(118,118,128,0.12)',
   quaternaryFillColor: 'rgba(116,116,128,0.8)',
+  transparent: 'transparent',
   // App Colors
   primary: '#f8cd00',
   secondary: '#4c98e8',

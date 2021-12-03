@@ -20,6 +20,7 @@ export const uiColors = {
   secondaryFillColor: 'secondaryFillColor',
   tertiaryFillColor: 'tertiaryFillColor',
   quaternaryFillColor: 'quaternaryFillColor',
+  transparent: 'transparent',
   // App Color Palette
   primary: 'primary',
   secondary: 'secondary',
