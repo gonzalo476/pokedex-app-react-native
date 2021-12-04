@@ -4,7 +4,7 @@ import {View, StyleSheet} from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import {useFormik} from 'formik'
 
-import {LogInSchema, setUser, goToHome} from '../../../utils'
+import {LogInSchema, setUser, setRoot} from '../../../utils'
 import {TextInput, Button} from '../../../components'
 
 const styles = StyleSheet.create({
@@ -33,7 +33,7 @@ const SignIn = () => {
   const handleSignIn = async ({user}: any) => {
     try {
       await setUser({user})
-      goToHome()
+      setRoot({name: 'Home'})
     } catch (error) {
       throw error
     }
