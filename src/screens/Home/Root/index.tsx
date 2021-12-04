@@ -43,7 +43,7 @@ const Index: React.FC<iProps> = props => {
           Buscar
         </Text>
         <View style={styles.searchbar}>
-          <Searchbar onFocus={() => setIsFocused(!isFocused)} />
+          <Searchbar onFocus={() => setIsFocused(true)} />
           <Pressable style={styles.qrButton} onPress={onPressCamera}>
             <Image
               style={styles.qrIcon}
