@@ -13,6 +13,7 @@ const atom: any = require('../assets/icons/atom.png')
 const thunder: any = require('../assets/icons/thunder.png')
 const fire: any = require('../assets/icons/fire.png')
 const mountain: any = require('../assets/icons/mountain.png')
+const cup: any = require('../assets/icons/cup.png')
 
 export default {
   checkmarkCircle,
@@ -30,4 +31,5 @@ export default {
   thunder,
   fire,
   mountain,
+  cup,
 }

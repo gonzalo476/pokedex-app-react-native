@@ -1,6 +1,7 @@
 import React from 'react'
 import {View, Image, StyleSheet} from 'react-native'
 
+import Divider from '../Divider'
 import {Text} from '../theme'
 
 interface iProps {
@@ -32,6 +33,7 @@ const index: React.FC<iProps> = props => {
         </Text>
       </View>
       {children}
+      <Divider marginVertical={20} />
     </View>
   )
 }

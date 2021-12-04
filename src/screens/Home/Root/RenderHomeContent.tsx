@@ -37,6 +37,7 @@ const RenderHomeContent = () => {
           />
         </View>
       </SectionComponent>
+      <SectionComponent title="Pokemones" img={icons.cup}></SectionComponent>
     </View>
   )
 }
