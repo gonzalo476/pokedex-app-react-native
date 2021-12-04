@@ -17,10 +17,10 @@ const RenderHomeContent = () => {
   const {data, loading} = useQuery(getAllPokemonQuery, {variables: {limit: 20}})
 
   const RenderPokemons = () => {
-    const allpokemons = data.allPokemon
+    const allpokemon = data.allPokemon
     return (
       <View>
-        {allpokemons.map((pokemon: any, index: any) => (
+        {allpokemon.map((pokemon: any, index: any) => (
           <PokemonCard key={index} {...pokemon} />
         ))}
       </View>
