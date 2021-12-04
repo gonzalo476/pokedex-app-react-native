@@ -89,7 +89,7 @@ export const goToHome = () => {
 }
 
 export const setRoot = (props: any) => {
-  const {name, visible = false, height = 0, title = 'Title'} = props
+  const {name, title = 'Title'} = props
   Navigation.setRoot({
     root: {
       stack: {
@@ -101,6 +101,10 @@ export const setRoot = (props: any) => {
           },
         ],
         options: {
+          statusBar: {
+            style: 'dark',
+            backgroundColor: Colors.blueDark,
+          },
           topBar: {
             title: {
               text: title,
@@ -110,8 +114,8 @@ export const setRoot = (props: any) => {
             background: {
               color: Colors.blueDark,
             },
-            visible,
-            height,
+            visible: false,
+            height: 0,
           },
           layout: {
             componentBackgroundColor: Colors.blueDark,

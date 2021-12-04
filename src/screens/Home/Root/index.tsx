@@ -4,6 +4,7 @@ import {View, ScrollView, Image, Pressable} from 'react-native'
 import {icons} from '../../../../constants'
 
 import {styles} from './styles'
+import Header from './Header'
 import RenderHomeContent from './RenderHomeContent'
 
 import {width, height, Text, Searchbar, Button} from '../../../components'
@@ -15,7 +16,7 @@ interface iProps {
 
 const Index: React.FC<iProps> = props => {
   const [isFocused, setIsFocused] = React.useState(false)
-  const {onPressCamera} = props
+  const {onPressCamera, onPressUser} = props
 
   const RenderSearchResults = () => {
     return (
@@ -38,6 +39,7 @@ const Index: React.FC<iProps> = props => {
         },
       ]}
     >
+      <Header onPressUser={onPressUser} />
       <ScrollView style={{paddingHorizontal: 16}}>
         <Text variant="largeTitle" type="Bold" marginV="m">
           Buscar
