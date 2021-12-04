@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, StyleSheet, Image} from 'react-native'
+import {View, StyleSheet, Image, Pressable} from 'react-native'
 import {Colors} from '../theme'
 
 import {Text} from '../theme'
@@ -8,6 +8,7 @@ interface iProps {
   title?: string
   image?: any
   width?: number | string
+  onPress?: () => void
 }
 
 const styles = StyleSheet.create({
@@ -31,16 +32,16 @@ const styles = StyleSheet.create({
 })
 
 const index: React.FC<iProps> = props => {
-  const {title = 'Category', image, width = '40%'} = props
+  const {title = 'Category', image, width = '40%', onPress} = props
   return (
-    <View style={[styles.container, {width}]}>
+    <Pressable style={[styles.container, {width}]} onPress={onPress}>
       <View style={styles.content}>
         <Image style={styles.image} resizeMode="contain" source={image} />
         <Text UIColor="systemDark" variant="title3" type="SemiBold">
           {title}
         </Text>
       </View>
-    </View>
+    </Pressable>
   )
 }
 
