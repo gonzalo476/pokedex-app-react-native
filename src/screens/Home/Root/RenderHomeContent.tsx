@@ -3,7 +3,12 @@ import {View} from 'react-native'
 import {icons} from '../../../../constants'
 import {styles} from './styles'
 
-import {width, CategoryCard, SectionComponent} from '../../../components'
+import {
+  width,
+  CategoryCard,
+  SectionComponent,
+  PokemonCard,
+} from '../../../components'
 
 const RenderHomeContent = () => {
   return (
@@ -37,12 +42,11 @@ const RenderHomeContent = () => {
           />
         </View>
       </SectionComponent>
-      <SectionComponent title="Pokemones" img={icons.cup} contentLoading>
-        <CategoryCard
-          title="Locations"
-          width={width / 2 - 16}
-          image={icons.mountain}
-        />
+      <SectionComponent title="Pokemones" img={icons.cup}>
+        <PokemonCard name="Pokemon Name" />
+        <PokemonCard name="Pokemon Name" />
+        <PokemonCard name="Pokemon Name" />
+        <PokemonCard name="Pokemon Name" />
       </SectionComponent>
     </View>
   )

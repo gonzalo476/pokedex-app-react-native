@@ -17,7 +17,7 @@ import {
 import Colors from '../AppColors'
 
 interface iProps {
-  children?: string
+  children?: React.ReactNode
   variant?: VariantType
   paddingV?: Size
   paddingH?: Size

@@ -11,9 +11,14 @@ const categories: any = require('../assets/icons/categories.png')
 const pokedex: any = require('../assets/icons/pokedex.png')
 const atom: any = require('../assets/icons/atom.png')
 const thunder: any = require('../assets/icons/thunder.png')
+const thunder_small: any = require('../assets/icons/thunder-small.png')
 const fire: any = require('../assets/icons/fire.png')
 const mountain: any = require('../assets/icons/mountain.png')
 const cup: any = require('../assets/icons/cup.png')
+const pokeball: any = require('../assets/icons/pokeball.png')
+const pokeball_small: any = require('../assets/icons/pokeball-small.png')
+const ballons: any = require('../assets/icons/ballons.png')
+const potion: any = require('../assets/icons/potion.png')
 
 export default {
   checkmarkCircle,
@@ -32,4 +37,9 @@ export default {
   fire,
   mountain,
   cup,
+  thunder_small,
+  pokeball,
+  pokeball_small,
+  ballons,
+  potion,
 }
