@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Button} from 'react-native'
+import {View, Button, StyleSheet} from 'react-native'
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 
@@ -10,17 +10,25 @@ interface iProps {
   onPressUser(): void
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})
+
 const Index: React.FC<iProps> = props => {
   const {onPressCamera, onPressUser} = props
   const insets = useSafeAreaInsets()
   return (
     <View
-      style={{
-        height,
-        width,
-        paddingTop: insets.top,
-        flex: 1,
-      }}
+      style={[
+        styles.container,
+        {
+          height,
+          width,
+          paddingTop: insets.top,
+        },
+      ]}
     >
       <Text>Camera Screen</Text>
       <Button title="go to user screen" onPress={onPressUser} />
