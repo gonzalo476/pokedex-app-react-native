@@ -6,6 +6,8 @@ const X: any = require('../assets/icons/x.png')
 const coin: any = require('../assets/icons/coin.png')
 const logo: any = require('../assets/icons/logo.png')
 const search: any = require('../assets/icons/search.png')
+const qrCamera: any = require('../assets/icons/qr-code.png')
+const categories: any = require('../assets/icons/categories.png')
 
 export default {
   checkmarkCircle,
@@ -16,4 +18,6 @@ export default {
   coin,
   logo,
   search,
+  qrCamera,
+  categories,
 }

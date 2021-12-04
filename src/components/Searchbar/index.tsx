@@ -3,8 +3,15 @@ import {View, TextInput, StyleSheet, Image} from 'react-native'
 import {icons} from '../../../constants'
 import {Colors} from '../theme'
 
+interface iProps {
+  onChangeText?: () => void
+  onBlur?: () => void
+  onFocus?: () => void
+}
+
 const styles = StyleSheet.create({
   container: {
+    flexShrink: 1,
     width: '100%',
     height: 40,
     borderRadius: 10,
@@ -22,6 +29,7 @@ const styles = StyleSheet.create({
     width: '100%',
     fontFamily: 'Gellix-Regular',
     fontSize: 17,
+    color: 'white',
   },
   searchicon: {
     height: 18,
@@ -30,7 +38,8 @@ const styles = StyleSheet.create({
   },
 })
 
-const index = () => {
+const index: React.FC<iProps> = props => {
+  const {onChangeText, onBlur, onFocus} = props
   return (
     <View style={styles.container}>
       <Image
@@ -42,6 +51,9 @@ const index = () => {
         style={styles.textinput}
         placeholderTextColor={Colors.disabledDark}
         placeholder="Buscar un pokemon"
+        onChangeText={onChangeText}
+        onBlur={onBlur}
+        onFocus={onFocus}
       />
     </View>
   )

@@ -1,7 +1,16 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react'
-import {View, ScrollView, StyleSheet} from 'react-native'
+import {View, ScrollView, StyleSheet, Image, Pressable} from 'react-native'
+import {icons} from '../../../../constants'
 
-import {width, height, Text, Searchbar} from '../../../components'
+import {
+  width,
+  height,
+  Text,
+  Searchbar,
+  Colors,
+  Button,
+} from '../../../components'
 
 interface iProps {
   onPressCamera(): void
@@ -15,7 +24,6 @@ const styles = StyleSheet.create({
   header: {
     width: '100%',
     flexDirection: 'row',
-    paddingHorizontal: 16,
     paddingVertical: 20,
     backgroundColor: 'red',
     justifyContent: 'space-between',
@@ -29,13 +37,64 @@ const styles = StyleSheet.create({
     width: 27,
   },
   searchbar: {
-    paddingHorizontal: 16,
-    alignSelf: 'center',
+    flexShrink: 1,
+    flexDirection: 'row',
+    marginBottom: 15,
+  },
+  qrButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: Colors.primary,
+    borderStyle: 'solid',
+    borderWidth: 0.3,
+    borderColor: '#979797',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginStart: 10,
+  },
+  qrIcon: {
+    width: 20,
+    height: 20,
+  },
+  categoryIcon: {
+    width: 15,
+    height: 15,
+  },
+  row: {
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 })
 
 const Index: React.FC<iProps> = props => {
-  const {onPressCamera, onPressUser} = props
+  const [isFocused, setIsFocused] = React.useState(false)
+  const {onPressCamera} = props
+
+  const RenderHomeContent = () => {
+    return (
+      <View>
+        <View style={styles.row}>
+          <Image style={styles.categoryIcon} source={icons.categories} />
+          <Text variant="headline" marginH="s" type="SemiBold">
+            Categorías
+          </Text>
+        </View>
+      </View>
+    )
+  }
+
+  const RenderSearchResults = () => {
+    return (
+      <View>
+        <Text>Search results</Text>
+        <Button variant="text" onPress={() => setIsFocused(!isFocused)}>
+          Cerrar
+        </Button>
+      </View>
+    )
+  }
+
   return (
     <View
       style={[
@@ -46,13 +105,21 @@ const Index: React.FC<iProps> = props => {
         },
       ]}
     >
-      <ScrollView>
-        <Text variant="largeTitle" type="Bold" marginV="m" marginH="m">
+      <ScrollView style={{paddingHorizontal: 16}}>
+        <Text variant="largeTitle" type="Bold" marginV="m">
           Buscar
         </Text>
         <View style={styles.searchbar}>
-          <Searchbar />
+          <Searchbar onFocus={() => setIsFocused(!isFocused)} />
+          <Pressable style={styles.qrButton} onPress={onPressCamera}>
+            <Image
+              style={styles.qrIcon}
+              source={icons.qrCamera}
+              resizeMode="contain"
+            />
+          </Pressable>
         </View>
+        {isFocused ? <RenderSearchResults /> : <RenderHomeContent />}
       </ScrollView>
     </View>
   )
