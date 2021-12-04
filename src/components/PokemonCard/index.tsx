@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, View, Image} from 'react-native'
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native'
 
 import Progressbar from '../Progressbar'
 import Divider from '../Divider'
@@ -31,62 +31,76 @@ const styles = StyleSheet.create({
 })
 
 const Index: React.FC<iPokemon> = props => {
-  const {name} = props
-  const [gridItemWidth, setGridItemWidth] = React.useState<number>(0)
+  const {
+    name,
+    base_experience = 0,
+    gender_rate = 0,
+    capture_rate = 0,
+    base_happiness = 0,
+  } = props
+  const [layoutWidth, setLayoutWidth] = React.useState<number>(0)
   return (
     <>
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {}}
+        activeOpacity={0.5}
+      >
         <Image style={styles.image} source={icons.pokeball} />
         <View style={styles.pokemonSpects}>
           <Text variant="headline" type="SemiBold" numberOfLines={1}>
-            {name}
+            {name.toUpperCase()}
           </Text>
           <View
             style={styles.grid}
             onLayout={e => {
               const newWidth = e.nativeEvent.layout.width
-              setGridItemWidth(newWidth)
+              setLayoutWidth(newWidth)
             }}
           >
             <Progressbar
               icon={icons.thunder}
               title="Exp."
-              value={200}
+              value={base_experience}
               maxValue={400}
               color={Colors.primary}
               size="xxs"
-              mainWidth={gridItemWidth / 2}
+              mainWidth={layoutWidth / 2}
+              animationDelay={1.1}
             />
             <Progressbar
               icon={icons.potion}
               title="Regeneración"
-              value={200}
-              maxValue={400}
+              value={gender_rate}
+              maxValue={100}
               color={Colors.systemGreen}
               size="xxs"
-              mainWidth={gridItemWidth / 2}
+              mainWidth={layoutWidth / 2}
+              animationDelay={1.2}
             />
             <Progressbar
               icon={icons.pokeball_small}
               title="Captura"
-              value={200}
-              maxValue={400}
+              value={capture_rate}
+              maxValue={256}
               color={Colors.systemRed}
               size="xxs"
-              mainWidth={gridItemWidth / 2}
+              mainWidth={layoutWidth / 2}
+              animationDelay={1.5}
             />
             <Progressbar
               icon={icons.ballons}
               title="Felicidad"
-              value={200}
-              maxValue={400}
+              value={base_happiness}
+              maxValue={140}
               color={Colors.aqua}
               size="xxs"
-              mainWidth={gridItemWidth / 2}
+              mainWidth={layoutWidth / 2}
+              animationDelay={1.8}
             />
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
       <Divider />
     </>
   )

@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client'
 
 export default gql`
-  query allPokemon {
-    allPokemon {
+  query allPokemon($limit: Int!) {
+    allPokemon(limit: $limit) {
       id
       name
       base_experience

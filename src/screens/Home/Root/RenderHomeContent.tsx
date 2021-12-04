@@ -2,6 +2,7 @@ import React from 'react'
 import {View} from 'react-native'
 import {icons} from '../../../../constants'
 import {styles} from './styles'
+import {useQuery} from '@apollo/client'
 
 import {
   width,
@@ -10,7 +11,22 @@ import {
   PokemonCard,
 } from '../../../components'
 
+import getAllPokemonQuery from '../../../graphql/pokemon/getAllPokemon.query'
+
 const RenderHomeContent = () => {
+  const {data, loading} = useQuery(getAllPokemonQuery, {variables: {limit: 20}})
+
+  const RenderPokemons = () => {
+    const allpokemons = data.allPokemon
+    return (
+      <View>
+        {allpokemons.map((pokemon: any, index: any) => (
+          <PokemonCard key={index} {...pokemon} />
+        ))}
+      </View>
+    )
+  }
+
   return (
     <View>
       <SectionComponent title="Categorías" img={icons.categories}>
@@ -42,11 +58,12 @@ const RenderHomeContent = () => {
           />
         </View>
       </SectionComponent>
-      <SectionComponent title="Pokemones" img={icons.cup}>
-        <PokemonCard name="Pokemon Name" />
-        <PokemonCard name="Pokemon Name" />
-        <PokemonCard name="Pokemon Name" />
-        <PokemonCard name="Pokemon Name" />
+      <SectionComponent
+        title="Pokemones"
+        img={icons.cup}
+        contentLoading={loading}
+      >
+        {loading ? null : <RenderPokemons />}
       </SectionComponent>
     </View>
   )
