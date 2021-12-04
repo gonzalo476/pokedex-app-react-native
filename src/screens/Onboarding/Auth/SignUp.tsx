@@ -4,7 +4,7 @@ import {Navigation} from 'react-native-navigation'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import {useFormik} from 'formik'
 
-import {SignupSchema, showModal, setUser, setRoot} from '../../../utils'
+import {SignupSchema, showModal, setUser, goToHome} from '../../../utils'
 import {iScreen} from '../../../types'
 import {Colors, Header, Text, TextInput, Button} from '../../../components'
 
@@ -36,9 +36,9 @@ const SignUp: React.FC<iScreen> = props => {
   const handleSignUp = async ({user}: any) => {
     try {
       await setUser({user})
-      setRoot({name: 'Home'})
+      goToHome()
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 

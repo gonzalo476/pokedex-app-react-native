@@ -2,13 +2,13 @@
 import React from 'react'
 import {View, Text} from 'react-native'
 
-import {setRoot, getUser} from '../../../utils'
+import {setRoot, getUser, goToHome} from '../../../utils'
 
 const authenticateUser = async () => {
   try {
     const user = await getUser()
     if (user) {
-      setRoot({name: 'Home'})
+      goToHome()
     } else {
       setRoot({name: 'Welcome'})
     }

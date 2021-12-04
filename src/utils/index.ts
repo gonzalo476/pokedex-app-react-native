@@ -52,7 +52,44 @@ export const navigate = (props: any) => {
   })
 }
 
-export const setRoot = ({name}: any) => {
+export const goToHome = () => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: 'Home',
+            },
+          },
+        ],
+        options: {
+          topBar: {
+            barStyle: 'black',
+            title: {
+              text: 'Pokedex',
+              color: Colors.systemWhite,
+              fontFamily: 'Gellix-SemiBold',
+            },
+            subtitle: {
+              text: '',
+            },
+            background: {
+              color: '#121E41',
+            },
+          },
+          layout: {
+            componentBackgroundColor: Colors.blueDark,
+            backgroundColor: Colors.blueDark,
+          },
+        },
+      },
+    },
+  })
+}
+
+export const setRoot = (props: any) => {
+  const {name, visible = false, height = 0, title = 'Title'} = props
   Navigation.setRoot({
     root: {
       stack: {
@@ -65,8 +102,16 @@ export const setRoot = ({name}: any) => {
         ],
         options: {
           topBar: {
-            visible: false,
-            height: 0,
+            title: {
+              text: title,
+              color: Colors.systemWhite,
+              fontFamily: 'Gellix-SemiBold',
+            },
+            background: {
+              color: Colors.blueDark,
+            },
+            visible,
+            height,
           },
           layout: {
             componentBackgroundColor: Colors.blueDark,
