@@ -8,6 +8,11 @@ const logo: any = require('../assets/icons/logo.png')
 const search: any = require('../assets/icons/search.png')
 const qrCamera: any = require('../assets/icons/qr-code.png')
 const categories: any = require('../assets/icons/categories.png')
+const pokedex: any = require('../assets/icons/pokedex.png')
+const atom: any = require('../assets/icons/atom.png')
+const thunder: any = require('../assets/icons/thunder.png')
+const fire: any = require('../assets/icons/fire.png')
+const mountain: any = require('../assets/icons/mountain.png')
 
 export default {
   checkmarkCircle,
@@ -20,4 +25,9 @@ export default {
   search,
   qrCamera,
   categories,
+  pokedex,
+  atom,
+  thunder,
+  fire,
+  mountain,
 }

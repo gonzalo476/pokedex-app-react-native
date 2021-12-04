@@ -10,6 +10,7 @@ import {
   Searchbar,
   Colors,
   Button,
+  CategoryCard,
 } from '../../../components'
 
 interface iProps {
@@ -61,9 +62,26 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
   },
-  row: {
+  categories: {
     alignItems: 'center',
     flexDirection: 'row',
+    marginVertical: 10,
+  },
+  grid: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  gridItem: {
+    width: width / 2 - 16,
+    height: 80,
+    padding: 4,
+  },
+  itemFilled: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 10,
+    backgroundColor: 'white',
   },
 })
 
@@ -74,11 +92,38 @@ const Index: React.FC<iProps> = props => {
   const RenderHomeContent = () => {
     return (
       <View>
-        <View style={styles.row}>
+        <View style={styles.categories}>
           <Image style={styles.categoryIcon} source={icons.categories} />
           <Text variant="headline" marginH="s" type="SemiBold">
             Categorías
           </Text>
+        </View>
+        <View style={styles.grid}>
+          <CategoryCard
+            title="Pokedex"
+            width={width / 2 - 16}
+            image={icons.pokedex}
+          />
+          <CategoryCard
+            title="Moves"
+            width={width / 2 - 16}
+            image={icons.atom}
+          />
+          <CategoryCard
+            title="Abilities"
+            width={width / 2 - 16}
+            image={icons.thunder}
+          />
+          <CategoryCard
+            title="Items"
+            width={width / 2 - 16}
+            image={icons.fire}
+          />
+          <CategoryCard
+            title="Locations"
+            width={width / 2 - 16}
+            image={icons.mountain}
+          />
         </View>
       </View>
     )
