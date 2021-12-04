@@ -37,7 +37,13 @@ const RenderHomeContent = () => {
           />
         </View>
       </SectionComponent>
-      <SectionComponent title="Pokemones" img={icons.cup}></SectionComponent>
+      <SectionComponent title="Pokemones" img={icons.cup} contentLoading>
+        <CategoryCard
+          title="Locations"
+          width={width / 2 - 16}
+          image={icons.mountain}
+        />
+      </SectionComponent>
     </View>
   )
 }
