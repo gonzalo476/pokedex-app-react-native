@@ -5,6 +5,7 @@ import {ProviderWrapper} from './ProviderWrapper'
 import Home from '../src/screens/Home'
 import Abilities from '../src/screens/Home/Root/Abilities'
 import Pokemon from '../src/screens/Home/Root/Pokemon'
+import PokemonList from '../src/screens/Home/Root/PokemonList'
 import Welcome from '../src/screens/Onboarding/Welcome'
 import SignUp from '../src/screens/Onboarding/Auth/SignUp'
 import SignIn from '../src/screens/Onboarding/Auth/SignIn'
@@ -30,6 +31,11 @@ export function registerScreens() {
     'Pokemon',
     () => ProviderWrapper(Pokemon),
     () => Pokemon,
+  )
+  Navigation.registerComponent(
+    'PokemonList',
+    () => ProviderWrapper(PokemonList),
+    () => PokemonList,
   )
   Navigation.registerComponent(
     'Welcome',

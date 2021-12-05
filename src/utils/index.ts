@@ -33,14 +33,23 @@ export const setUser = async ({user}: any) => {
 
 // Navigation
 export const navigate = (props: any) => {
-  const {componentId, id} = props
+  const {componentId, id, data, title} = props
   Navigation.push<iNavigation>(componentId, {
     component: {
       name: id,
+      passProps: {
+        name: 'data',
+        data,
+      },
       options: {
         topBar: {
           title: {
-            text: id,
+            text: title,
+            color: Colors.systemWhite,
+            fontFamily: 'Gellix-SemiBold',
+          },
+          background: {
+            color: Colors.blueDark,
           },
         },
         layout: {
