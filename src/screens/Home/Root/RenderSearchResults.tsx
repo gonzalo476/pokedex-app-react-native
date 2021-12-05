@@ -10,13 +10,14 @@ import getAllPokemonQuery from '../../../graphql/pokemon/getAllPokemon.query'
 interface iProps {
   setIsFocused?: any
   searchWord?: string
+  componentId?: any
 }
 
 const RenderSearchResults: React.FC<iProps> = props => {
   const {data, loading} = useQuery(getAllPokemonQuery, {
     variables: {limit: 50},
   })
-  const {searchWord, setIsFocused} = props
+  const {searchWord, setIsFocused, componentId} = props
 
   const RenderPokemons = () => {
     const allpokemon = data.allPokemon
@@ -25,7 +26,7 @@ const RenderSearchResults: React.FC<iProps> = props => {
     return (
       <View>
         {filteredName.slice(0, 5).map((pokemon: any, index: any) => (
-          <PokemonCard key={index} {...pokemon} />
+          <PokemonCard key={index} {...pokemon} componentId={componentId} />
         ))}
       </View>
     )

@@ -53,6 +53,7 @@ const Index: React.FC<iProps> = props => {
           <RenderSearchResults
             searchWord={searchWord}
             setIsFocused={setIsFocused}
+            componentId={componentId.componentId}
           />
         ) : (
           <RenderHomeContent componentId={componentId.componentId} />
