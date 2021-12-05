@@ -4,6 +4,8 @@ import {icons} from '../../../../constants'
 import {styles} from './styles'
 import {useQuery} from '@apollo/client'
 
+import {showModal} from '../../../utils'
+
 import {
   width,
   CategoryCard,
@@ -45,6 +47,7 @@ const RenderHomeContent = () => {
             title="Abilities"
             width={width / 2 - 16}
             image={icons.thunder}
+            onPress={() => showModal({name: 'Abilities', title: 'Abilities'})}
           />
           <CategoryCard
             title="Items"
