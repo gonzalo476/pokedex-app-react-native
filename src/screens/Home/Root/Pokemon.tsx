@@ -46,7 +46,6 @@ const Pokemon = (props: any) => {
       generation,
       types,
     } = renderPokemonProps
-    console.log(abilities)
 
     return (
       <ScrollView style={styles.container}>
@@ -83,6 +82,7 @@ const Pokemon = (props: any) => {
             maxValue={120}
             color={Colors.secondary}
             big
+            animationDelay={1.15}
           />
           <Progressbar
             title="Attack"
@@ -90,6 +90,7 @@ const Pokemon = (props: any) => {
             maxValue={150}
             color={Colors.secondary}
             big
+            animationDelay={1.25}
           />
           <Progressbar
             title="Defense"
@@ -97,6 +98,7 @@ const Pokemon = (props: any) => {
             maxValue={250}
             color={Colors.secondary}
             big
+            animationDelay={1.35}
           />
           <Progressbar
             title="Spe. Attack"
@@ -104,6 +106,7 @@ const Pokemon = (props: any) => {
             maxValue={200}
             color={Colors.secondary}
             big
+            animationDelay={1.45}
           />
           <Progressbar
             title="Spe. Defense"
@@ -111,12 +114,14 @@ const Pokemon = (props: any) => {
             maxValue={250}
             color={Colors.secondary}
             big
+            animationDelay={1.55}
           />
           <Progressbar
             title="Speed"
             value={base_stats.speed}
             maxValue={200}
             color={Colors.secondary}
+            animationDelay={1.65}
             big
           />
         </SectionComponent>
