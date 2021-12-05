@@ -2,7 +2,7 @@ import React from 'react'
 import {View} from 'react-native'
 import {useQuery} from '@apollo/client'
 
-import {filterList} from '../../../utils'
+import {filterData} from '../../../utils'
 import {Button, PokemonCard, Text, Loader} from '../../../components'
 
 import getAllPokemonQuery from '../../../graphql/pokemon/getAllPokemon.query'
@@ -19,10 +19,8 @@ const RenderSearchResults: React.FC<iProps> = props => {
   const {searchWord, setIsFocused} = props
 
   const RenderPokemons = () => {
-    const text = searchWord?.toLowerCase()
     const allpokemon = data.allPokemon
-
-    const filteredName = filterList(text, allpokemon)
+    const filteredName = filterData(searchWord, allpokemon)
 
     return (
       <View>

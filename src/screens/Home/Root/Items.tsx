@@ -3,7 +3,8 @@ import React from 'react'
 import {FlatList, View} from 'react-native'
 import {useQuery} from '@apollo/client'
 
-import {Loader, Item, Colors} from '../../../components'
+import {filterData} from '../../../utils'
+import {Loader, Item, Colors, Searchbar} from '../../../components'
 import getAllItems from '../../../graphql/items/getAllItems'
 
 const Items = () => {
@@ -14,14 +15,19 @@ const Items = () => {
   }
 
   const List = () => {
+    const [filterText, setFilterText] = React.useState('')
     const [numberOfItems, setNumberOfItems] = React.useState(15)
     const DATA = data.allItems
+    const filteredData = filterData(filterText, DATA)
 
     return (
-      <View>
+      <View style={{paddingHorizontal: 16}}>
+        <Searchbar
+          placeholder="Buscar un Item"
+          onChangeText={text => setFilterText(text)}
+        />
         <FlatList
-          style={{paddingHorizontal: 16}}
-          data={DATA.slice(0, numberOfItems)}
+          data={filteredData.slice(0, numberOfItems)}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           onEndReached={() => setNumberOfItems(numberOfItems + 15)}

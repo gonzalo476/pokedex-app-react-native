@@ -7,6 +7,7 @@ interface iProps {
   onChangeText?: (text: string) => void
   onBlur?: () => void
   onFocus?: () => void
+  placeholder?: string
 }
 
 const styles = StyleSheet.create({
@@ -39,7 +40,12 @@ const styles = StyleSheet.create({
 })
 
 const index: React.FC<iProps> = props => {
-  const {onChangeText, onBlur, onFocus} = props
+  const {
+    onChangeText,
+    onBlur,
+    onFocus,
+    placeholder = 'Busca a un Pokemon',
+  } = props
   return (
     <View style={styles.container}>
       <Image
@@ -50,7 +56,7 @@ const index: React.FC<iProps> = props => {
       <TextInput
         style={styles.textinput}
         placeholderTextColor={Colors.disabledDark}
-        placeholder="Buscar un pokemon"
+        placeholder={placeholder}
         onChangeText={onChangeText}
         onBlur={onBlur}
         onFocus={onFocus}

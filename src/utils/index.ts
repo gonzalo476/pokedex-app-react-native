@@ -17,9 +17,9 @@ export const removeUser = async () => {
   }
 }
 
-export function filterList(filterText: any, filterData: any) {
-  const lowerCasedText = filterText?.toLowerCase()
-  const filteredData = filterData.filter((item: any) =>
+export function filterData(text: any, data: any) {
+  const lowerCasedText = text?.toLowerCase()
+  const filteredData = data.filter((item: any) =>
     item.name.toLowerCase().match(lowerCasedText),
   )
   return filteredData
