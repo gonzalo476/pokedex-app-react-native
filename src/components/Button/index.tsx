@@ -1,5 +1,6 @@
 import React from 'react'
-import {StyleSheet, Pressable, ActivityIndicator} from 'react-native'
+import {StyleSheet, Pressable} from 'react-native'
+import Loader from '../Loader'
 
 import {
   Colors,
@@ -74,7 +75,7 @@ const Index: React.FC<iButton> = props => {
       onPress={onPress}
     >
       {isLoading ? (
-        <ActivityIndicator color={Colors.blueDark} />
+        <Loader color={Colors.blueDark} />
       ) : (
         <Text
           UIColor={variant === 'filled' ? 'systemDark' : textColor}

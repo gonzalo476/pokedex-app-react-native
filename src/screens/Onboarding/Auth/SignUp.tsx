@@ -38,7 +38,7 @@ const SignUp: React.FC<iScreen> = props => {
       await setUser({user})
       setRoot({name: 'Home'})
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 

@@ -35,7 +35,7 @@ const SignIn = () => {
       await setUser({user})
       setRoot({name: 'Home'})
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 

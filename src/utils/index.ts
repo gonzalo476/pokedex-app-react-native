@@ -5,6 +5,15 @@ import * as Yup from 'yup'
 import {iNavigation} from '../types'
 import {Colors} from '../components'
 
+// functions
+export function filterData(text: any, data: any) {
+  const lowerCasedText = text?.toLowerCase()
+  const filteredData = data.filter((item: any) =>
+    item.name.toLowerCase().match(lowerCasedText),
+  )
+  return filteredData
+}
+
 // User AsyncStorage
 export const USER_KEY = 'user'
 
@@ -33,14 +42,23 @@ export const setUser = async ({user}: any) => {
 
 // Navigation
 export const navigate = (props: any) => {
-  const {componentId, id} = props
+  const {componentId, id, data, title} = props
   Navigation.push<iNavigation>(componentId, {
     component: {
       name: id,
+      passProps: {
+        name: 'data',
+        data,
+      },
       options: {
         topBar: {
           title: {
-            text: id,
+            text: title,
+            color: Colors.systemWhite,
+            fontFamily: 'Gellix-SemiBold',
+          },
+          background: {
+            color: Colors.blueDark,
           },
         },
         layout: {
@@ -52,7 +70,44 @@ export const navigate = (props: any) => {
   })
 }
 
-export const setRoot = ({name}: any) => {
+export const goToHome = () => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: 'Home',
+            },
+          },
+        ],
+        options: {
+          topBar: {
+            barStyle: 'black',
+            title: {
+              text: 'Pokedex',
+              color: Colors.systemWhite,
+              fontFamily: 'Gellix-SemiBold',
+            },
+            subtitle: {
+              text: '',
+            },
+            background: {
+              color: '#121E41',
+            },
+          },
+          layout: {
+            componentBackgroundColor: Colors.blueDark,
+            backgroundColor: Colors.blueDark,
+          },
+        },
+      },
+    },
+  })
+}
+
+export const setRoot = (props: any) => {
+  const {name, title = 'Title'} = props
   Navigation.setRoot({
     root: {
       stack: {
@@ -64,7 +119,19 @@ export const setRoot = ({name}: any) => {
           },
         ],
         options: {
+          statusBar: {
+            style: 'dark',
+            backgroundColor: Colors.blueDark,
+          },
           topBar: {
+            title: {
+              text: title,
+              color: Colors.systemWhite,
+              fontFamily: 'Gellix-SemiBold',
+            },
+            background: {
+              color: Colors.blueDark,
+            },
             visible: false,
             height: 0,
           },
@@ -105,7 +172,7 @@ export const showModal = ({name, title}: any) => {
   })
 }
 
-// Yup Validation
+// User Validation
 export const SignupSchema = Yup.object().shape({
   username: Yup.string()
     .min(4, '¡Muy corto!')

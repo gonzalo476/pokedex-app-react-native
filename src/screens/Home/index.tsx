@@ -1,22 +1,53 @@
 import React from 'react'
-import {StyleSheet, Text, View, Button} from 'react-native'
+import Animated, {
+  useAnimatedRef,
+  useSharedValue,
+  useAnimatedScrollHandler,
+} from 'react-native-reanimated'
 
-import {removeUser} from '../../utils'
+import Root from './Root'
+import Camera from './Camera'
+import User from './User'
+import {width} from '../../components'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+const Home = (componentId: any) => {
+  const scrollRef = useAnimatedRef<any>()
+  const scrollXValue = useSharedValue(0)
 
-const Home = () => {
+  const handleScroll = useAnimatedScrollHandler({
+    onScroll: ({contentOffset: {x}}) => {
+      scrollXValue.value = x
+    },
+  })
+
+  function handleScrollTo(index: number) {
+    if (index === 0) {
+      scrollRef.current.scrollTo({x: 0})
+    }
+    scrollRef.current.scrollTo({x: width * index})
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Button title="remove user" onPress={() => removeUser()} />
-    </View>
+    <Animated.ScrollView
+      ref={scrollRef}
+      horizontal
+      pagingEnabled
+      scrollEnabled
+      bounces={false}
+      contentOffset={{x: width, y: 0}} // <== sets the initial scroll value
+      onScroll={handleScroll}
+      decelerationRate={10}
+      scrollEventThrottle={16}
+      showsHorizontalScrollIndicator={false}
+    >
+      <Camera onPressBack={() => handleScrollTo(1)} />
+      <Root
+        onPressCamera={() => handleScrollTo(0)}
+        onPressUser={() => handleScrollTo(2)}
+        componentId={componentId}
+      />
+      <User onPressBack={() => handleScrollTo(1)} />
+    </Animated.ScrollView>
   )
 }
 
