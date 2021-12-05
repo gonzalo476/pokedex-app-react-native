@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react'
 import {View, Image, StyleSheet} from 'react-native'
 
@@ -10,6 +11,10 @@ interface iProps {
   img?: any
   children?: any
   contentLoading?: boolean
+  marginV?: number
+  marginH?: number
+  wrap?: boolean
+  row?: boolean
 }
 
 const styles = StyleSheet.create({
@@ -25,16 +30,37 @@ const styles = StyleSheet.create({
 })
 
 const index: React.FC<iProps> = props => {
-  const {children, img, title = 'Title', contentLoading} = props
+  const {
+    children,
+    img,
+    title = 'Title',
+    contentLoading,
+    marginH,
+    marginV,
+    wrap,
+    row,
+  } = props
   return (
-    <View>
+    <View
+      style={{
+        marginHorizontal: marginH,
+        marginVertical: marginV,
+      }}
+    >
       <View style={styles.categories}>
-        <Image style={styles.categoryIcon} source={img} />
+        {img ? <Image style={styles.categoryIcon} source={img} /> : null}
         <Text variant="headline" marginH="s" type="SemiBold">
           {title}
         </Text>
       </View>
-      {contentLoading ? <Loader color={Colors.secondary} /> : children}
+      <View
+        style={{
+          flexWrap: wrap ? 'wrap' : 'nowrap',
+          flexDirection: row ? 'row' : 'column',
+        }}
+      >
+        {contentLoading ? <Loader color={Colors.secondary} /> : children}
+      </View>
       <Divider marginVertical={20} />
     </View>
   )

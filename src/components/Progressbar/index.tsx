@@ -55,6 +55,7 @@ interface iProps {
   size?: Size
   animationDelay?: number
   mainWidth?: string | number
+  big?: boolean
 }
 
 const Index: React.FC<iProps> = props => {
@@ -66,6 +67,7 @@ const Index: React.FC<iProps> = props => {
     animationDelay = 1,
     icon,
     mainWidth,
+    big,
   } = props
   const [width, setWidth] = React.useState(0)
   const animatedValue = useSharedValue(-100)
@@ -98,10 +100,18 @@ const Index: React.FC<iProps> = props => {
       ) : null}
       <View style={{width: '100%', flexShrink: 1}}>
         <View style={styles.text}>
-          <Text numberOfLines={1} type="Medium" variant="caption1">
+          <Text
+            numberOfLines={1}
+            type="Medium"
+            variant={big ? 'headline' : 'caption1'}
+          >
             {title}
           </Text>
-          <Text numberOfLines={1} type="Medium" variant="caption1">
+          <Text
+            numberOfLines={1}
+            type="Medium"
+            variant={big ? 'headline' : 'caption1'}
+          >
             {value}/{maxValue}
           </Text>
         </View>

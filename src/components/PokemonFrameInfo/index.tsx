@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
 })
 
 const index: React.FC<iProps> = props => {
-  const {title = 'Title', value = 'Value', width} = props
+  const {title = 'Title', value, width} = props
   return (
     <View style={[styles.container, {width}]}>
       <Text variant="body">{title}</Text>
-      <Text>{value}</Text>
+      {value ? <Text>{value}</Text> : null}
     </View>
   )
 }

@@ -11,6 +11,7 @@ export type Pokemon = {
   abilities: Abilities
   games: Games
   sprites: Sprites
+  types: Type
 }
 
 type BaseStats = {
@@ -27,14 +28,16 @@ type Sprites = {
 }
 
 type Games = {
-  id: number
   name: string
   generation: string
 }
 
 export type Abilities = {
   name: string
-  pokemon: Pokemon
+}
+
+export type Type = {
+  name: string
 }
 
 export type Items = {

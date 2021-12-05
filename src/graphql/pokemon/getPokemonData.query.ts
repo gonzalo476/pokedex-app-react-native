@@ -19,19 +19,13 @@ export default gql`
         speed
       }
       abilities {
-        id
         name
-        is_hidden
-        effect
-        description
       }
       games {
-        id
         name
         generation
       }
       types {
-        id
         name
       }
       generation

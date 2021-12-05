@@ -1,17 +1,18 @@
 import React from 'react'
-import {StyleSheet, View, Image} from 'react-native'
+import {StyleSheet, View, Image, Pressable} from 'react-native'
 
 import {Text} from '../theme'
-import {images} from '../../../constants'
+import {icons, images} from '../../../constants'
 
 interface iProps {
   title?: string
+  onPressBack?: () => void
+  showBackButton?: boolean
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#111d3d',
-    flexShrink: 1,
   },
   headerImage: {
     width: '100%',
@@ -22,13 +23,32 @@ const styles = StyleSheet.create({
     bottom: 0,
     flexShrink: 1,
   },
+  backIcon: {
+    width: 30,
+    height: 30,
+  },
+  backButton: {
+    position: 'absolute',
+    zIndex: 10,
+    top: 15,
+    left: 15,
+  },
 })
 
 const index: React.FC<iProps> = props => {
-  const {title = 'Title'} = props
+  const {title = 'Title', showBackButton, onPressBack} = props
   return (
     <View style={styles.container}>
       <Image source={images.header_image} style={styles.headerImage} />
+      {showBackButton ? (
+        <Pressable onPress={onPressBack} style={styles.backButton}>
+          <Image
+            style={styles.backIcon}
+            resizeMode="contain"
+            source={icons.arrowLeft}
+          />
+        </Pressable>
+      ) : null}
       <View style={styles.title}>
         <Text
           variant="largeTitle"
