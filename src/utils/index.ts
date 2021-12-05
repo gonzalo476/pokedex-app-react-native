@@ -5,6 +5,15 @@ import * as Yup from 'yup'
 import {iNavigation} from '../types'
 import {Colors} from '../components'
 
+// functions
+export function filterData(text: any, data: any) {
+  const lowerCasedText = text?.toLowerCase()
+  const filteredData = data.filter((item: any) =>
+    item.name.toLowerCase().match(lowerCasedText),
+  )
+  return filteredData
+}
+
 // User AsyncStorage
 export const USER_KEY = 'user'
 
@@ -15,14 +24,6 @@ export const removeUser = async () => {
   } catch (error) {
     throw error
   }
-}
-
-export function filterData(text: any, data: any) {
-  const lowerCasedText = text?.toLowerCase()
-  const filteredData = data.filter((item: any) =>
-    item.name.toLowerCase().match(lowerCasedText),
-  )
-  return filteredData
 }
 
 export const getUser = async () => {

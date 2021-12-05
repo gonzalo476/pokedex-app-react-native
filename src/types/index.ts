@@ -11,6 +11,7 @@ export interface iScreen {
 
 export interface iPokemon extends Pokemon {
   id?: number
+  componentId?: any
 }
 
 export interface iAbilities extends Abilities {

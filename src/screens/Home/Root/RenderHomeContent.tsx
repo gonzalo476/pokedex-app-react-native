@@ -14,8 +14,9 @@ import {
 } from '../../../components'
 
 import getAllPokemonQuery from '../../../graphql/pokemon/getAllPokemon.query'
+import {iScreen} from '../../../types'
 
-const RenderHomeContent = () => {
+const RenderHomeContent: React.FC<iScreen> = ({componentId}) => {
   const {data, loading} = useQuery(getAllPokemonQuery, {variables: {limit: 20}})
 
   const RenderPokemons = () => {
@@ -23,7 +24,7 @@ const RenderHomeContent = () => {
     return (
       <View>
         {allpokemon.map((pokemon: any, index: any) => (
-          <PokemonCard key={index} {...pokemon} />
+          <PokemonCard key={index} {...pokemon} componentId={componentId} />
         ))}
       </View>
     )

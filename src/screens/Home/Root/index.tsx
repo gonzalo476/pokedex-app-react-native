@@ -13,12 +13,13 @@ import {width, height, Text, Searchbar} from '../../../components'
 interface iProps {
   onPressCamera(): void
   onPressUser(): void
+  componentId?: any
 }
 
 const Index: React.FC<iProps> = props => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false)
   const [searchWord, setSearchWord] = React.useState<string>()
-  const {onPressCamera, onPressUser} = props
+  const {onPressCamera, onPressUser, componentId} = props
 
   return (
     <View
@@ -54,7 +55,7 @@ const Index: React.FC<iProps> = props => {
             setIsFocused={setIsFocused}
           />
         ) : (
-          <RenderHomeContent />
+          <RenderHomeContent componentId={componentId.componentId} />
         )}
       </ScrollView>
     </View>

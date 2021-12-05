@@ -1,6 +1,7 @@
 import React from 'react'
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native'
 
+import {navigate} from '../../utils'
 import Progressbar from '../Progressbar'
 import Divider from '../Divider'
 import {icons} from '../../../constants'
@@ -37,14 +38,16 @@ const Index: React.FC<iPokemon> = props => {
     gender_rate = 0,
     capture_rate = 0,
     base_happiness = 0,
+    componentId,
     sprites,
   } = props
   const [layoutWidth, setLayoutWidth] = React.useState<number>(0)
+
   return (
     <>
       <TouchableOpacity
         style={styles.container}
-        onPress={() => {}}
+        onPress={() => navigate({componentId: componentId, id: 'Pokemon'})}
         activeOpacity={0.5}
       >
         <Image

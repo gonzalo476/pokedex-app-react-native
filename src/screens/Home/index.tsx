@@ -10,7 +10,7 @@ import Camera from './Camera'
 import User from './User'
 import {width} from '../../components'
 
-const Home = () => {
+const Home = (componentId: any) => {
   const scrollRef = useAnimatedRef<any>()
   const scrollXValue = useSharedValue(0)
 
@@ -44,6 +44,7 @@ const Home = () => {
       <Root
         onPressCamera={() => handleScrollTo(0)}
         onPressUser={() => handleScrollTo(2)}
+        componentId={componentId}
       />
       <User onPressBack={() => handleScrollTo(1)} />
     </Animated.ScrollView>
