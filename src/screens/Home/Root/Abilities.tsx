@@ -40,6 +40,7 @@ const Abilities: React.FC<iScreen> = props => {
         <Searchbar
           placeholder="Buscar un Item"
           onChangeText={text => setFilterText(text)}
+          marginV={20}
         />
         <FlatList
           data={filteredData.slice(0, numberOfItems)}

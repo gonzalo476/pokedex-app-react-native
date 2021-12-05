@@ -25,6 +25,7 @@ const Items = () => {
         <Searchbar
           placeholder="Buscar un Item"
           onChangeText={text => setFilterText(text)}
+          marginV={20}
         />
         <FlatList
           data={filteredData.slice(0, numberOfItems)}

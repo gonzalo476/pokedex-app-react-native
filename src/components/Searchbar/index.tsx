@@ -8,6 +8,8 @@ interface iProps {
   onBlur?: () => void
   onFocus?: () => void
   placeholder?: string
+  marginV?: string | number
+  marginH?: string | number
 }
 
 const styles = StyleSheet.create({
@@ -45,9 +47,16 @@ const index: React.FC<iProps> = props => {
     onBlur,
     onFocus,
     placeholder = 'Busca a un Pokemon',
+    marginH,
+    marginV,
   } = props
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {marginHorizontal: marginH, marginVertical: marginV},
+      ]}
+    >
       <Image
         style={styles.searchicon}
         source={icons.search}
