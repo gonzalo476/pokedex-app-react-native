@@ -172,7 +172,7 @@ export const showModal = ({name, title}: any) => {
   })
 }
 
-// Yup Validation
+// User Validation
 export const SignupSchema = Yup.object().shape({
   username: Yup.string()
     .min(4, '¡Muy corto!')

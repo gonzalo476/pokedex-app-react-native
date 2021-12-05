@@ -6,10 +6,10 @@ import {PokemonCard} from '../../../components'
 
 const PokemonList = (props: any) => {
   const [numberOfItems, setNumberOfItems] = React.useState(10)
-  const {data} = props
+  const {data, componentId} = props
 
   const renderItem = ({item}: any) => {
-    return <PokemonCard {...item} />
+    return <PokemonCard {...item} componentId={componentId} />
   }
 
   return (

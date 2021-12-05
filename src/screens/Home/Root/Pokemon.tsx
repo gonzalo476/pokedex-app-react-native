@@ -1,14 +1,23 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, View, SafeAreaView} from 'react-native'
 
-const Pokemon = () => {
+import {Text} from '../../../components'
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})
+
+const Pokemon = (props: any) => {
+  const {data} = props
+  console.log(data)
   return (
-    <View>
-      <Text>Pokemon</Text>
+    <View style={styles.container}>
+      <SafeAreaView />
+      <Text variant="largeTitle">id:{data}</Text>
     </View>
   )
 }
 
 export default Pokemon
-
-const styles = StyleSheet.create({})

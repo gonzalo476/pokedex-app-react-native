@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
 
 const Index: React.FC<iPokemon> = props => {
   const {
+    id,
     name,
     base_experience = 0,
     gender_rate = 0,
@@ -47,7 +48,9 @@ const Index: React.FC<iPokemon> = props => {
     <>
       <TouchableOpacity
         style={styles.container}
-        onPress={() => navigate({componentId: componentId, id: 'Pokemon'})}
+        onPress={() =>
+          navigate({componentId: componentId, id: 'Pokemon', data: id})
+        }
         activeOpacity={0.5}
       >
         <Image
