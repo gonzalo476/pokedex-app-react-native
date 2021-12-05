@@ -53,6 +53,7 @@ const RenderHomeContent = () => {
             title="Items"
             width={width / 2 - 16}
             image={icons.fire}
+            onPress={() => showModal({name: 'Items', title: 'Items'})}
           />
           <CategoryCard
             title="Locations"

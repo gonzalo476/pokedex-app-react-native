@@ -37,6 +37,7 @@ const Index: React.FC<iPokemon> = props => {
     gender_rate = 0,
     capture_rate = 0,
     base_happiness = 0,
+    sprites,
   } = props
   const [layoutWidth, setLayoutWidth] = React.useState<number>(0)
   return (
@@ -46,7 +47,11 @@ const Index: React.FC<iPokemon> = props => {
         onPress={() => {}}
         activeOpacity={0.5}
       >
-        <Image style={styles.image} source={icons.pokeball} />
+        <Image
+          style={styles.image}
+          source={sprites ? {uri: sprites.front_shiny} : icons.pokeball}
+          resizeMode="cover"
+        />
         <View style={styles.pokemonSpects}>
           <Text variant="headline" type="SemiBold" numberOfLines={1}>
             {name.toUpperCase()}

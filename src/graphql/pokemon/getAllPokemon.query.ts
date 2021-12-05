@@ -9,6 +9,9 @@ export default gql`
       gender_rate
       capture_rate
       base_happiness
+      sprites {
+        front_shiny
+      }
     }
   }
 `

@@ -36,6 +36,9 @@ export default gql`
         name
       }
       generation
+      sprites {
+        front_shiny
+      }
     }
   }
 `

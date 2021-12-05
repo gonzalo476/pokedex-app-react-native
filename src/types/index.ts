@@ -1,4 +1,4 @@
-import {Pokemon, Abilities} from './types'
+import {Pokemon, Abilities, Items} from './types'
 
 export interface iNavigation {
   name: string
@@ -14,5 +14,9 @@ export interface iPokemon extends Pokemon {
 }
 
 export interface iAbilities extends Abilities {
+  id?: number
+}
+
+export interface iItems extends Items {
   id?: number
 }

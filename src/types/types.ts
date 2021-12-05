@@ -7,9 +7,10 @@ export type Pokemon = {
   gender_rate: number
   capture_rate: number
   base_happiness: number
-  base_stats: BaseStats[]
-  abilities: Abilities[]
-  games: Games[]
+  base_stats: BaseStats
+  abilities: Abilities
+  games: Games
+  sprites: Sprites
 }
 
 type BaseStats = {
@@ -21,6 +22,10 @@ type BaseStats = {
   speed: number
 }
 
+type Sprites = {
+  front_shiny: string
+}
+
 type Games = {
   id: number
   name: string
@@ -29,5 +34,12 @@ type Games = {
 
 export type Abilities = {
   name: string
-  pokemon: Pokemon[]
+  pokemon: Pokemon
+}
+
+export type Items = {
+  name: string
+  sprite: string
+  cost: number
+  effect: string
 }

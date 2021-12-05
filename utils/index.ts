@@ -4,6 +4,7 @@ import {ProviderWrapper} from './ProviderWrapper'
 
 import Home from '../src/screens/Home'
 import Abilities from '../src/screens/Home/Root/Abilities'
+import Items from '../src/screens/Home/Root/Items'
 import Pokemon from '../src/screens/Home/Root/Pokemon'
 import PokemonList from '../src/screens/Home/Root/PokemonList'
 import Welcome from '../src/screens/Onboarding/Welcome'
@@ -26,6 +27,11 @@ export function registerScreens() {
     'Abilities',
     () => ProviderWrapper(Abilities),
     () => Abilities,
+  )
+  Navigation.registerComponent(
+    'Items',
+    () => ProviderWrapper(Items),
+    () => Items,
   )
   Navigation.registerComponent(
     'Pokemon',
