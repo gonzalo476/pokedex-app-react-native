@@ -1,7 +1,7 @@
 import React from 'react'
-import {StyleSheet, View, SafeAreaView} from 'react-native'
+import {StyleSheet, ScrollView} from 'react-native'
 
-import {Text} from '../../../components'
+import {Text, ImageHeader} from '../../../components'
 
 const styles = StyleSheet.create({
   container: {
@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
 
 const Pokemon = (props: any) => {
   const {data} = props
-  console.log(data)
+
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <ScrollView style={styles.container}>
+      <ImageHeader />
       <Text variant="largeTitle">id:{data}</Text>
-    </View>
+    </ScrollView>
   )
 }
 
