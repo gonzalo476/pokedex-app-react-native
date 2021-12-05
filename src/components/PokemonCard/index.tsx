@@ -82,7 +82,7 @@ const Index: React.FC<iPokemon> = props => {
               icon={icons.pokeball_small}
               title="Captura"
               value={capture_rate}
-              maxValue={256}
+              maxValue={255}
               color={Colors.systemRed}
               size="xxs"
               mainWidth={layoutWidth / 2}

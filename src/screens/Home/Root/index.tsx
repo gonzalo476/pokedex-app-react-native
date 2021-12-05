@@ -5,9 +5,10 @@ import {icons} from '../../../../constants'
 
 import {styles} from './styles'
 import Header from './Header'
+import RenderSearchResults from './RenderSearchResults'
 import RenderHomeContent from './RenderHomeContent'
 
-import {width, height, Text, Searchbar, Button} from '../../../components'
+import {width, height, Text, Searchbar} from '../../../components'
 
 interface iProps {
   onPressCamera(): void
@@ -15,19 +16,9 @@ interface iProps {
 }
 
 const Index: React.FC<iProps> = props => {
-  const [isFocused, setIsFocused] = React.useState(false)
+  const [isFocused, setIsFocused] = React.useState<boolean>(false)
+  const [searchWord, setSearchWord] = React.useState<string>()
   const {onPressCamera, onPressUser} = props
-
-  const RenderSearchResults = () => {
-    return (
-      <View>
-        <Text>Search results</Text>
-        <Button variant="text" onPress={() => setIsFocused(!isFocused)}>
-          Cerrar
-        </Button>
-      </View>
-    )
-  }
 
   return (
     <View
@@ -45,7 +36,10 @@ const Index: React.FC<iProps> = props => {
           Buscar
         </Text>
         <View style={styles.searchbar}>
-          <Searchbar onFocus={() => setIsFocused(true)} />
+          <Searchbar
+            onFocus={() => setIsFocused(true)}
+            onChangeText={(text: string) => setSearchWord(text)}
+          />
           <Pressable style={styles.qrButton} onPress={onPressCamera}>
             <Image
               style={styles.qrIcon}
@@ -54,7 +48,14 @@ const Index: React.FC<iProps> = props => {
             />
           </Pressable>
         </View>
-        {isFocused ? <RenderSearchResults /> : <RenderHomeContent />}
+        {isFocused ? (
+          <RenderSearchResults
+            searchWord={searchWord}
+            setIsFocused={setIsFocused}
+          />
+        ) : (
+          <RenderHomeContent />
+        )}
       </ScrollView>
     </View>
   )

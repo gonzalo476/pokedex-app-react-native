@@ -4,7 +4,7 @@ import {icons} from '../../../constants'
 import {Colors} from '../theme'
 
 interface iProps {
-  onChangeText?: () => void
+  onChangeText?: (text: string) => void
   onBlur?: () => void
   onFocus?: () => void
 }
