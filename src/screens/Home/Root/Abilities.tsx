@@ -3,8 +3,8 @@ import React from 'react'
 import {FlatList, View} from 'react-native'
 import {useQuery} from '@apollo/client'
 
-import {navigate} from '../../../utils'
-import {Loader, ListItem, Colors} from '../../../components'
+import {navigate, filterData} from '../../../utils'
+import {Loader, ListItem, Colors, Searchbar} from '../../../components'
 import getAllAbilitiesQuery from '../../../graphql/abilities/getAllAbilities.query'
 import {iScreen} from '../../../types'
 
@@ -30,14 +30,19 @@ const Abilities: React.FC<iScreen> = props => {
   }
 
   const List = () => {
+    const [filterText, setFilterText] = React.useState('')
     const [numberOfItems, setNumberOfItems] = React.useState(15)
     const DATA = data.allAbilities
+    const filteredData = filterData(filterText, DATA)
 
     return (
-      <View>
+      <View style={{paddingHorizontal: 16}}>
+        <Searchbar
+          placeholder="Buscar un Item"
+          onChangeText={text => setFilterText(text)}
+        />
         <FlatList
-          style={{paddingHorizontal: 16}}
-          data={DATA.slice(0, numberOfItems)}
+          data={filteredData.slice(0, numberOfItems)}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           onEndReached={() => setNumberOfItems(numberOfItems + 15)}
