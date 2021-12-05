@@ -21,16 +21,13 @@ type BaseStats = {
   speed: number
 }
 
-type Abilities = {
-  id: number
-  name: string
-  is_hidden: boolean
-  effect: string
-  description: string
-}
-
 type Games = {
   id: number
   name: string
   generation: string
+}
+
+export type Abilities = {
+  name: string
+  pokemon: Pokemon[]
 }
