@@ -1,9 +1,8 @@
 import {gql} from '@apollo/client'
 
 export default gql`
-  query pokemon($id: string!) {
-    pokemon(id: $id) {
-      id
+  query Pokemon($pokemonId: Int!) {
+    pokemon(id: $pokemonId) {
       name
       height
       weight
