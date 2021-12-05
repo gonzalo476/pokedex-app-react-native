@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react'
 import {View, Image, StyleSheet} from 'react-native'
 import {icons} from '../../../constants'
