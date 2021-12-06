@@ -13,7 +13,6 @@ const authenticateUser = async () => {
       setRoot({name: 'Welcome'})
     }
   } catch (error) {
-    console.log('error: ', error)
     setRoot({name: 'Welcome'})
   }
 }
