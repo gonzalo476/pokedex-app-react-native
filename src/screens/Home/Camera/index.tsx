@@ -1,40 +1,30 @@
 import React from 'react'
-import {StyleSheet, Text, TouchableOpacity, Linking, View} from 'react-native'
+import {View} from 'react-native'
 
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {RNCamera} from 'react-native-camera'
 
+import {navigate} from '../../../utils'
 import {width, height} from '../../../components'
 
 interface iProps {
   onPressBack(): void
+  componentId?: any
 }
 
-const styles = StyleSheet.create({
-  centerText: {
-    flex: 1,
-    fontSize: 18,
-    padding: 32,
-    color: '#777',
-  },
-  textBold: {
-    fontWeight: '500',
-    color: '#000',
-  },
-  buttonText: {
-    fontSize: 21,
-    color: 'rgb(0,122,255)',
-  },
-  buttonTouchable: {
-    padding: 16,
-  },
-})
-
 const Index: React.FC<iProps> = props => {
-  const {} = props
+  const {componentId} = props
 
   const onSuccess = (e: any) => {
-    Linking.openURL(e.data).catch(err => console.error('An error occured', err))
+    const name = e.data
+    const splited = name.split(':')
+    const parsed = parseInt(splited[1])
+
+    navigate({
+      componentId: componentId.componentId,
+      id: 'Pokemon',
+      data: parsed,
+    })
   }
 
   return (
@@ -42,24 +32,14 @@ const Index: React.FC<iProps> = props => {
       style={{
         height,
         width,
-        flex: 1,
       }}
     >
       <QRCodeScanner
         onRead={onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.torch}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to{' '}
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
+        reactivate={true}
+        reactivateTimeout={2000}
+        cameraTimeout={6000}
+        flashMode={RNCamera.Constants.FlashMode.off}
       />
     </View>
   )
