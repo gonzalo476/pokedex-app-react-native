@@ -1,14 +1,42 @@
 import React from 'react'
-import {View, Button} from 'react-native'
+import {StyleSheet, Text, TouchableOpacity, Linking, View} from 'react-native'
 
-import {width, height, Text} from '../../../components'
+import QRCodeScanner from 'react-native-qrcode-scanner'
+import {RNCamera} from 'react-native-camera'
+
+import {width, height} from '../../../components'
 
 interface iProps {
   onPressBack(): void
 }
 
+const styles = StyleSheet.create({
+  centerText: {
+    flex: 1,
+    fontSize: 18,
+    padding: 32,
+    color: '#777',
+  },
+  textBold: {
+    fontWeight: '500',
+    color: '#000',
+  },
+  buttonText: {
+    fontSize: 21,
+    color: 'rgb(0,122,255)',
+  },
+  buttonTouchable: {
+    padding: 16,
+  },
+})
+
 const Index: React.FC<iProps> = props => {
-  const {onPressBack} = props
+  const {} = props
+
+  const onSuccess = (e: any) => {
+    Linking.openURL(e.data).catch(err => console.error('An error occured', err))
+  }
+
   return (
     <View
       style={{
@@ -17,8 +45,22 @@ const Index: React.FC<iProps> = props => {
         flex: 1,
       }}
     >
-      <Text>Camera Screen</Text>
-      <Button title="go to root screen" onPress={onPressBack} />
+      <QRCodeScanner
+        onRead={onSuccess}
+        flashMode={RNCamera.Constants.FlashMode.torch}
+        topContent={
+          <Text style={styles.centerText}>
+            Go to{' '}
+            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
+            your computer and scan the QR code.
+          </Text>
+        }
+        bottomContent={
+          <TouchableOpacity style={styles.buttonTouchable}>
+            <Text style={styles.buttonText}>OK. Got it!</Text>
+          </TouchableOpacity>
+        }
+      />
     </View>
   )
 }
