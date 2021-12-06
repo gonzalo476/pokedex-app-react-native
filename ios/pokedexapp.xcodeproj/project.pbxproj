@@ -41,15 +41,15 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pokedexapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pokedexapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = pokedexapp/main.m; sourceTree = "<group>"; };
-		61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-SemiBold.otf"; path = "../assets/fonts/Gellix-SemiBold.otf"; sourceTree = "<group>"; };
-		66828A78C28B4F889CA62779 /* Gellix-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Regular.otf"; path = "../assets/fonts/Gellix-Regular.otf"; sourceTree = "<group>"; };
+		61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-SemiBold.otf"; path = "../assets/fonts/Gellix-SemiBold.otf"; sourceTree = "<group>"; };
+		66828A78C28B4F889CA62779 /* Gellix-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Regular.otf"; path = "../assets/fonts/Gellix-Regular.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = pokedexapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF16EE22B3B01B5728B67BF7 /* libPods-pokedexapp-pokedexappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokedexapp-pokedexappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53E86BA8572719F26D7CAFF /* Pods-pokedexapp-pokedexappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexapp-pokedexappTests.release.xcconfig"; path = "Target Support Files/Pods-pokedexapp-pokedexappTests/Pods-pokedexapp-pokedexappTests.release.xcconfig"; sourceTree = "<group>"; };
 		CCE93AD80A14A5DED147D2CA /* Pods-pokedexapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexapp.debug.xcconfig"; path = "Target Support Files/Pods-pokedexapp/Pods-pokedexapp.debug.xcconfig"; sourceTree = "<group>"; };
-		CD695FB051B04669A09D7783 /* Gellix-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Medium.otf"; path = "../assets/fonts/Gellix-Medium.otf"; sourceTree = "<group>"; };
+		CD695FB051B04669A09D7783 /* Gellix-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Medium.otf"; path = "../assets/fonts/Gellix-Medium.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F335DEE82B484AEB8628F70A /* Gellix-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Bold.otf"; path = "../assets/fonts/Gellix-Bold.otf"; sourceTree = "<group>"; };
+		F335DEE82B484AEB8628F70A /* Gellix-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gellix-Bold.otf"; path = "../assets/fonts/Gellix-Bold.otf"; sourceTree = "<group>"; };
 		F6035A2F3327196FCB54B359 /* libPods-pokedexapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokedexapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BABC9CD5DFA638DB257017 /* Pods-pokedexapp-pokedexappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexapp-pokedexappTests.debug.xcconfig"; path = "Target Support Files/Pods-pokedexapp-pokedexappTests/Pods-pokedexapp-pokedexappTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,7 +154,6 @@
 				F6BABC9CD5DFA638DB257017 /* Pods-pokedexapp-pokedexappTests.debug.xcconfig */,
 				C53E86BA8572719F26D7CAFF /* Pods-pokedexapp-pokedexappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -167,7 +166,6 @@
 				61C26B87505F4B8DA719BE49 /* Gellix-SemiBold.otf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KU648P6C3U;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = pokedexapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,7 +520,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gonzapps.pokedexapp;
 				PRODUCT_NAME = pokedexapp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -536,6 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KU648P6C3U;
 				INFOPLIST_FILE = pokedexapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,7 +546,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gonzapps.pokedexapp;
 				PRODUCT_NAME = pokedexapp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
