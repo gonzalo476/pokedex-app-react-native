@@ -9,6 +9,7 @@ interface iProps {
   title?: string
   showIcon?: boolean
   onPress?: () => void
+  color?: string
 }
 
 const styles = StyleSheet.create({
@@ -26,11 +27,13 @@ const styles = StyleSheet.create({
 })
 
 const Index: React.FC<iProps> = props => {
-  const {title, showIcon, onPress} = props
+  const {title, showIcon, onPress, color} = props
   return (
     <>
       <TouchableOpacity style={styles.container} onPress={onPress}>
-        <Text variant="body">{title}</Text>
+        <Text color={color} variant="body">
+          {title}
+        </Text>
         {showIcon ? (
           <Image
             source={icons.arrowRight}
