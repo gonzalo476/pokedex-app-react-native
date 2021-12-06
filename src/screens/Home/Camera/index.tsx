@@ -1,24 +1,46 @@
 import React from 'react'
-import {View, Button} from 'react-native'
+import {View} from 'react-native'
 
-import {width, height, Text} from '../../../components'
+import QRCodeScanner from 'react-native-qrcode-scanner'
+import {RNCamera} from 'react-native-camera'
+
+import {navigate} from '../../../utils'
+import {width, height} from '../../../components'
 
 interface iProps {
   onPressBack(): void
+  componentId?: any
 }
 
 const Index: React.FC<iProps> = props => {
-  const {onPressBack} = props
+  const {componentId} = props
+
+  const onSuccess = (e: any) => {
+    const name = e.data
+    const splited = name.split(':')
+    const parsed = parseInt(splited[1])
+
+    navigate({
+      componentId: componentId.componentId,
+      id: 'Pokemon',
+      data: parsed,
+    })
+  }
+
   return (
     <View
       style={{
         height,
         width,
-        flex: 1,
       }}
     >
-      <Text>Camera Screen</Text>
-      <Button title="go to root screen" onPress={onPressBack} />
+      <QRCodeScanner
+        onRead={onSuccess}
+        reactivate={true}
+        reactivateTimeout={2000}
+        cameraTimeout={6000}
+        flashMode={RNCamera.Constants.FlashMode.off}
+      />
     </View>
   )
 }

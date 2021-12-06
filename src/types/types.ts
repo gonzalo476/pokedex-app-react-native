@@ -36,7 +36,7 @@ export type Abilities = {
   name: string
 }
 
-export type Type = {
+type Type = {
   name: string
 }
 

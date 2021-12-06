@@ -40,7 +40,7 @@ const Home = (componentId: any) => {
       scrollEventThrottle={16}
       showsHorizontalScrollIndicator={false}
     >
-      <Camera onPressBack={() => handleScrollTo(1)} />
+      <Camera onPressBack={() => handleScrollTo(1)} componentId={componentId} />
       <Root
         onPressCamera={() => handleScrollTo(0)}
         onPressUser={() => handleScrollTo(2)}
